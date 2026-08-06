@@ -162,9 +162,9 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
     allow-hotplug enp0s3
 
     iface enp0s3 inet static
-    address <your-private-ip>
-    netmask <your-netmask>
-    gateway <your-router-ip>
+    address <PRIVATE_IP>
+    netmask <NETMASK>
+    gateway <ROUTER_IP>
     ```
 - Restart networking: `/etc/init.d/networking restart`.
 - Bring up the interface: `ifup enp0s3`.
