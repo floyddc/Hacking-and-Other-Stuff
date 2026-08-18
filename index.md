@@ -1,5 +1,6 @@
 ## Pentesting Writeups
 - [Reconnaissance](Pentesting-Writeups/Reconnaissance.md)
+- [Initial Access](Pentesting-Writeups/InitialAccess.md)
 - [Linux Privilege Escalation](Pentesting-Writeups/LinuxPrivEsc.md)
 
 ---
