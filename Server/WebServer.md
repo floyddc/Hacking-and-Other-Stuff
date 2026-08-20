@@ -30,6 +30,8 @@ Download it from https://www.debian.org/distrib/
 - [Install the No-IP Client](#14-install-the-no-ip-client)
 - [Update Apache redirect](#15-update-apache-redirect)
 
+---
+
 ## 1. Create the VM
 - Open **VirtualBox** and click **New**.
 - Preliminary configuration:
@@ -45,6 +47,7 @@ Download it from https://www.debian.org/distrib/
   - **Serial Ports**: enable `Settings → Serial Ports` by checking the corresponding box.
   - **USB**: enable `Settings → USB` and activate the USB Controller.
 
+---
 
 ## 2. Install Debian
 - Start the VM.
@@ -55,6 +58,7 @@ Download it from https://www.debian.org/distrib/
     - SSH Server.
     - Web Server.
 
+---
 
 ## 3. Verify Apache
 - Open a terminal and check your private IP: `ip addr show`.
@@ -62,10 +66,12 @@ Download it from https://www.debian.org/distrib/
 
 If Apache is working correctly, the default Apache page should appear.
 
+---
 
 ## 4. Become Root
 To perform administrative tasks: `su -` and enter your root password.
 
+---
 
 ## 5. Configure SSL
 - Create the SSL directory: `mkdir /etc/apache2/ssl`.
@@ -89,6 +95,7 @@ To perform administrative tasks: `su -` and enter your root password.
 
 > Browsers will warn that the certificate is not trusted because it is self-signed. This is expected.
 
+---
 
 ## 6. Install PHP
 - Update repositories: `apt update`.
@@ -97,9 +104,10 @@ To perform administrative tasks: `su -` and enter your root password.
 - Install the Apache PHP module: `apt install libapache2-mod-php`.
 - Enable PHP: `sudo a2enmod php<VERSION>`.
 
+---
 
 ## 7. Install MySQL
-Download the MySQL APT repository package from https://dev.mysql.com/downloads/repo/apt
+Download the MySQL APT repository package from [mysql.com](https://dev.mysql.com/downloads/repo/apt)
 - Install the downloaded package: `dpkg -i <PKG_NAME>`.
 - Choose **OK** when prompted.
 - Install MySQL Server: `apt install mysql-server`.
@@ -107,6 +115,7 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
 - Check the service status: `systemctl status mysql`.
 - Verify the version: `mysqladmin -u root -p version`.
 
+---
 
 ## 8. Install phpMyAdmin
 - Install phpMyAdmin: `apt install phpmyadmin`.
@@ -114,12 +123,13 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
     - Select **apache2**
     - Choose **YES** for dbconfig-common.
     - Set the administrator password.
-- Access phpMyAdmin from your browser: http://localhost/phpmyadmin or http://<PRIVATE_IP>/phpmyadmin.
+- Access phpMyAdmin from your browser: [http://localhost/phpmyadmin](http://localhost/phpmyadmin) or `http://<PRIVATE_IP>/phpmyadmin`.
 - Log in as:
     - **Username:** root.
     - **Password:** your MySQL root password.
 - Create a new user with full privileges using: `Host: localhost`
 
+---
 
 ## 9. Install FTP Server
 - Install VSFTPD: `apt install vsftpd`.
@@ -130,9 +140,10 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
 - Give full permissions: `chmod -R 777 /var/www/html`.
 - Restart the service: `service vsftpd restart`.
 
+---
 
 ### FileZilla configuration
-- Download FileZilla from https://filezilla-project.org/download.php?platform=win64.
+- Download FileZilla from [filezilla-project.org](https://filezilla-project.org/download.php?platform=win64).
 - Connection settings:
 
     | Field | Value |
@@ -142,17 +153,20 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
     | Password | Server password |
     | Port | 22 |
 
+---
 
 ## 10. SSH access
-- Download PuTTY from https://www.putty.org/.
+- Download PuTTY from [putty.org](https://www.putty.org/).
 - Connect using the same credentials used for FileZilla.
 
+---
 
 ## 11. Configure a static private IP
 - Open your router's administration page.
 - Go to: `Local Network`.
 - Assign a static IP address to the Debian machine.
 
+---
 
 ### Debian network configuration
 - Backup the current configuration: `cp /etc/network/interfaces /etc/network/interfaces.old`.
@@ -176,6 +190,7 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
     preferred_lft forever
     ```
 
+---
 
 ## 12. Configure Port Forwarding
 - Open your router's administration page.
@@ -189,19 +204,21 @@ Download the MySQL APT repository package from https://dev.mysql.com/downloads/r
     | FTP | TCP/UDP | 21 | Private IP |
     | SSH | TCP/UDP | 22 | Private IP |
 
+---
 
 ## 13. Configure Dynamic DNS
-Your public IP is usually dynamic. To make your server reachable from anywhere, use a Dynamic DNS service such as https://www.noip.com.
+Your public IP is usually dynamic. To make your server reachable from anywhere, use a Dynamic DNS service such as [noip.com](https://www.noip.com).
 - Create an account and:
     - Create a hostname.
     - Choose a domain.
-    - Associate it with your current public IP (check it from https://www.myip.com).
+    - Associate it with your current public IP (check it from [myip.com](https://www.myip.com)).
 - Configure your router: `WAN Services → DNS & DynDNS`.
 - Enable:
     - IPv4.
     - HTTPS.
 - Insert your No-IP credentials.
 
+---
 
 ## 14. Install the No-IP Client
 - Install the required packages: `apt install build-essential manpages-dev`.
@@ -218,6 +235,7 @@ Your public IP is usually dynamic. To make your server reachable from anywhere, 
 - Configure the client: `/usr/local/bin/noip2 -C`.
 - Start it: `/usr/local/bin/noip2`.
 
+---
 
 ## 15. Update Apache redirect
 - Edit: `mousepad /etc/apache2/sites-available/000-default.conf`.
