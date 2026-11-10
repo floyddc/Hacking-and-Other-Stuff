@@ -19,6 +19,6 @@
 
 ---
 
-## Building a Server (to update)
+## Building a Server
 - [Web Server](Server/WebServer.md)
-- Cloud Server
+- [Cloud Server](Server/CloudServer.md)
