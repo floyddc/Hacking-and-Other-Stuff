@@ -5,10 +5,10 @@ title: Web Server
 
 # BUILDING A WEB SERVER
 
-**Operating Systems:** Windows & Linux
+**Operating System:** Linux
 
 ## Prerequisites
-To build a home web server on Windows, you'll first need to install a Linux distribution inside a virtual machine (VM).
+To build a home web server, you'll first need to install a Linux distribution inside a virtual machine (VM).
 
 For this guide, we'll use **Debian 11**.
 
